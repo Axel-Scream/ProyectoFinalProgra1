@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Proyecto - Spa de Mascotas</title>
+    <link rel="stylesheet" href="css/estilo.css" />
+</head>
+
+<body>
+    <main id="view-login" class="container">
+        <h1>Spa de Mascotas - Login</h1>
+        <form id="formLogin" class="card">
+            <label>Usuario
+                <input type="text" id="inputUser" required>
+            </label>
+            <label>Contraseña
+                <input type="password" id="inputPass" required>
+            </label>
+            <button type="submit">Ingresar</button>
+            <p class="muted">Usuario de prueba: <b>admin</b> / Contraseña: <b>1234</b></p>
+            <p id="loginMsg" class="error"></p>
+        </form>
+    </main>
+
+    <div id="app" class="hidden">
+        <header class="topbar">
+            <div class="brand">
+                <img src="img/logo.jpg" alt="logo" id="logo" />
+                <span>Spa Mascotas</span>
+            </div>
+            <nav>
+                <button class="nav-btn" data-target="mod-registro">Registro</button>
+                <button class="nav-btn" data-target="mod-agenda">Agenda</button>
+                <button class="nav-btn" data-target="mod-carrito">Catálogo / Carrito</button>
+            </nav>
+            <div class="session">
+                <span id="welcome"></span>
+                <button id="btnLogout">Cerrar sesión</button>
+            </div>
+        </header>
+
+        <section class="container">
+
+            <article id="mod-registro" class="module">
+                <h2>Registro - Dueños y Mascotas</h2>
+
+                <div class="grid">
+                    <div class="card">
+                        <h3>Registrar Dueño</h3>
+                        <form id="formOwner">
+                            <label>Nombre<input id="ownerName" required></label>
+                            <label>Teléfono<input id="ownerPhone" required></label>
+                            <label>Correo<input id="ownerEmail" type="email" required></label>
+                            <button type="submit">Guardar dueño</button>
+                        </form>
+                    </div>
+
+                    <div class="card">
+                        <h3>Registrar Mascota</h3>
+                        <form id="formPet">
+                            <label>Nombre mascota<input id="petName" required></label>
+                            <label>Especie<input id="petSpecies" required></label>
+                            <label>Raza<input id="petBreed" required></label>
+                            <label>Dueño
+                                <select id="selectOwnerForPet"></select>
+                            </label>
+                            <button type="submit">Guardar mascota</button>
+                        </form>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h4>Dueños registrados</h4>
+                    <ul id="ownersList"></ul>
+                </div>
+                <div class="card">
+                    <h4>Mascotas registradas</h4>
+                    <ul id="petsList"></ul>
+                </div>
+            </article>
+
+            <article id="mod-agenda" class="module hidden">
+                <h2>Agenda de Servicios</h2>
+                <div class="card">
+                    <form id="formAgenda">
+                        <label>Fecha y hora<input type="datetime-local" id="agendaDatetime" required></label>
+                        <label>Mascota
+                            <select id="selectPetForAgenda"></select>
+                        </label>
+                        <label>Servicio
+                            <select id="selectServiceForAgenda">
+                                <option value="Baño">Baño (30 min)</option>
+                                <option value="Corte de Pelo">Corte de Pelo (60 min)</option>
+                                <option value="Baño + Corte">Baño + Corte (90 min)</option>
+                            </select>
+                        </label>
+                        <button type="submit">Agendar</button>
+                    </form>
+                </div>
+
+                <div class="card">
+                    <h4>Citas agendadas</h4>
+                    <ul id="agendaList"></ul>
+                </div>
+            </article>
+
+            <article id="mod-carrito" class="module hidden">
+                <h2>Catálogo & Carrito</h2>
+                <div id="catalog" class="grid"></div>
+
+                <div class="card">
+                    <h3>Carrito</h3>
+                    <ul id="cartList"></ul>
+                    <div>Subtotal: BS.<span id="subtotal">0</span></div>
+                    <div>Total (IVA 12%): BS.<span id="total">0</span></div>
+                    <button id="btnWhatsApp">Pagar por WhatsApp</button>
+                </div>
+            </article>
+
+        </section>
+    </div>
+
+    <script src="js/storage.js"></script>
+    <script src="js/login.js"></script>
+    <script src="js/registro.js"></script>
+    <script src="js/agenda.js"></script>
+    <script src="js/catalogo.js"></script>
+    <script src="js/carrito.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
