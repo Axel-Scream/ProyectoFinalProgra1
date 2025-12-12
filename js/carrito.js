@@ -42,7 +42,7 @@ document.getElementById("btnWhatsApp")?.addEventListener("click", function () {
 
     let msg = "Hola, quiero comprar estos productos:%0A%0A";
     cart.forEach(item => {
-        msg += `- ${item.name} x${item.qty} = $${item.price * item.qty}%0A`;
+        msg += `- ${item.name} x${item.qty} = BS.${item.price * item.qty}%0A`;
     });
 
     let subtotal = cart.reduce((sum, item) => sum + item.price * item.qty, 0);
@@ -54,4 +54,5 @@ document.getElementById("btnWhatsApp")?.addEventListener("click", function () {
     let url = `https://wa.me/${phone}?text=${msg}`;
 
     window.open(url, "_blank");
+
 });
