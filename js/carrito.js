@@ -48,7 +48,7 @@ document.getElementById("btnWhatsApp")?.addEventListener("click", function () {
     let subtotal = cart.reduce((sum, item) => sum + item.price * item.qty, 0);
     let total = (subtotal * 1.12).toFixed(2);
 
-    msg += `%0ASubtotal: $${subtotal}%0ATotal con IVA: $${total}`;
+    msg += `%0ASubtotal: BS.${subtotal}%0ATotal con IVA: Bs.${total}`;
 
     let phone = "59169978874";
     let url = `https://wa.me/${phone}?text=${msg}`;
@@ -56,3 +56,4 @@ document.getElementById("btnWhatsApp")?.addEventListener("click", function () {
     window.open(url, "_blank");
 
 });
+
